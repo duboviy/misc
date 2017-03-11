@@ -2,6 +2,7 @@
 
 # set logging for `retry` channel
 import logging
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger('retry')
 
 
@@ -37,3 +38,18 @@ def retry(func, max_retry=10):
                                                            retry, max_retry))
     else:
         raise RetryException(e, max_retry)
+
+if __name__ == '__main__':
+    import requests
+    from functools import partial
+
+    def some_request(uri, post):
+        return requests.post(uri, post)
+
+    uri = 'https://pentagon.com'
+    post = {'DDoS_attack': 'true'}
+
+    try:
+        retry_func(partial(some_request, uri, post), max_retry=5)
+    except RetryException, e:
+        print(e)
