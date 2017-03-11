@@ -46,7 +46,7 @@ if __name__ == '__main__':
     def some_request(uri, post):
         return requests.post(uri, post)
 
-    uri = 'https://pentagon.com'
+    uri = 'https://site_of_your_friend_you_want_to_disturb.com'
     post = {'DDoS_attack': 'true'}
 
     try:
