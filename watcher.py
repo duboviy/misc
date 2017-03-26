@@ -8,7 +8,7 @@ class ScriptModifiedHandler(PatternMatchingEventHandler):
 
     def __init__(self):
         super(ScriptModifiedHandler, self).__init__()
-		# you can add some init code here
+	# you can add some init code here
 
     def process(self, event):
         print(event.src_path, event.event_type)
@@ -16,14 +16,14 @@ class ScriptModifiedHandler(PatternMatchingEventHandler):
     def on_modified(self, event):
         self.process(event)
 		
-	def on_moved(self, event):
-		pass
+    def on_moved(self, event):
+	pass
 		
-	def on_deleted(self, event):
-		pass
+    def on_deleted(self, event):
+	pass
 		
-	def on_created(self, event):
-		pass
+    def on_created(self, event):
+	pass
 
 
 if __name__ == '__main__':
